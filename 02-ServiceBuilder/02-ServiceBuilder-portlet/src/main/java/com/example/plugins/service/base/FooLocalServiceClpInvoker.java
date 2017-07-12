@@ -292,10 +292,8 @@ public class FooLocalServiceClpInvoker {
 
         if (_methodName56.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes56, parameterTypes)) {
-            FooLocalServiceUtil.addFoo((com.example.plugins.service.dto.FooDto) arguments[0],
+            return FooLocalServiceUtil.addFoo((com.example.plugins.service.dto.FooDto) arguments[0],
                 (com.liferay.portal.service.ServiceContext) arguments[1]);
-
-            return null;
         }
 
         throw new UnsupportedOperationException();

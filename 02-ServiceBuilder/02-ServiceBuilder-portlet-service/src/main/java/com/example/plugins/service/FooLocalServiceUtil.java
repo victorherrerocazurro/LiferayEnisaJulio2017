@@ -319,11 +319,11 @@ public class FooLocalServiceUtil {
         return getService().invokeMethod(name, parameterTypes, arguments);
     }
 
-    public static void addFoo(com.example.plugins.service.dto.FooDto fooDto,
+    public static long addFoo(com.example.plugins.service.dto.FooDto fooDto,
         com.liferay.portal.service.ServiceContext serviceContext)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
-        getService().addFoo(fooDto, serviceContext);
+        return getService().addFoo(fooDto, serviceContext);
     }
 
     public static void clearService() {

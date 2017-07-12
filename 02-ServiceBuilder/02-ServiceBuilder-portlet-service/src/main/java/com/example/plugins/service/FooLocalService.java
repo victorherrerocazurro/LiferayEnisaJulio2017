@@ -292,7 +292,7 @@ public interface FooLocalService extends BaseLocalService, InvokableLocalService
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable;
 
-    public void addFoo(com.example.plugins.service.dto.FooDto fooDto,
+    public long addFoo(com.example.plugins.service.dto.FooDto fooDto,
         com.liferay.portal.service.ServiceContext serviceContext)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException;

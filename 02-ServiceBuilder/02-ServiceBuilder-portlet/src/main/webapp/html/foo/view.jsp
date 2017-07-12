@@ -30,11 +30,20 @@
 	
 			<liferay-ui:search-container-column-text property="field3" />
 	
-			<liferay-ui:search-container-column-text property="field4" />
+			<liferay-ui:search-container-column-date property="field4" />
 	
 			<liferay-ui:search-container-column-text property="field5" />
 	
 			<liferay-ui:search-container-column-text property="userName" />
+			
+			<portlet:renderURL portletMode="VIEW" var="urlEdit">
+				<portlet:param name="mvcPath" value="/html/foo/alta.jsp"/>
+				<portlet:param name="idFoo" value="<%=String.valueOf(aFooImpl.getFooId())%>"/>
+			</portlet:renderURL>
+			
+			<liferay-ui:search-container-column-text>
+				<a href="<%=urlEdit %>">Editar</a>
+			</liferay-ui:search-container-column-text>
 				
 		</liferay-ui:search-container-row>
 	

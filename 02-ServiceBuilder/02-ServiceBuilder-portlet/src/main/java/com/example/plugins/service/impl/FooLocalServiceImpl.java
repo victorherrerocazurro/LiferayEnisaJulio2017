@@ -32,7 +32,7 @@ public class FooLocalServiceImpl extends FooLocalServiceBaseImpl {
 	
 	
 	//Necesitamos obtener los datos del Foo
-	public void addFoo(FooDto fooDto, ServiceContext serviceContext) throws SystemException, PortalException{
+	public long addFoo(FooDto fooDto, ServiceContext serviceContext) throws SystemException, PortalException{
 		
 		long fooId = counterLocalService.increment();
 		
@@ -52,6 +52,8 @@ public class FooLocalServiceImpl extends FooLocalServiceBaseImpl {
 		newFoo.setGroupId(serviceContext.getScopeGroupId());
 		
 		addFoo(newFoo);
+		
+		return fooId;
 		
 	}
 	

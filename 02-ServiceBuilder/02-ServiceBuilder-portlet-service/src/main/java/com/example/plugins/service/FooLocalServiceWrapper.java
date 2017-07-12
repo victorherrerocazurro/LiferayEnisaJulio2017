@@ -332,11 +332,11 @@ public class FooLocalServiceWrapper implements FooLocalService,
     }
 
     @Override
-    public void addFoo(com.example.plugins.service.dto.FooDto fooDto,
+    public long addFoo(com.example.plugins.service.dto.FooDto fooDto,
         com.liferay.portal.service.ServiceContext serviceContext)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
-        _fooLocalService.addFoo(fooDto, serviceContext);
+        return _fooLocalService.addFoo(fooDto, serviceContext);
     }
 
     /**

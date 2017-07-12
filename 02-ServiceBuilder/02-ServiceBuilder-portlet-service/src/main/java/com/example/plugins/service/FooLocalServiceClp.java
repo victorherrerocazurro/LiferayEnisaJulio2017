@@ -798,18 +798,20 @@ public class FooLocalServiceClp implements FooLocalService {
     }
 
     @Override
-    public void addFoo(com.example.plugins.service.dto.FooDto fooDto,
+    public long addFoo(com.example.plugins.service.dto.FooDto fooDto,
         com.liferay.portal.service.ServiceContext serviceContext)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
         try {
-            _invokableLocalService.invokeMethod(_methodName23,
-                _methodParameterTypes23,
-                new Object[] {
-                    ClpSerializer.translateInput(fooDto),
-                    
-                ClpSerializer.translateInput(serviceContext)
-                });
+            returnObj = _invokableLocalService.invokeMethod(_methodName23,
+                    _methodParameterTypes23,
+                    new Object[] {
+                        ClpSerializer.translateInput(fooDto),
+                        
+                    ClpSerializer.translateInput(serviceContext)
+                    });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -828,5 +830,7 @@ public class FooLocalServiceClp implements FooLocalService {
                     " is not a valid exception");
             }
         }
+
+        return ((Long) returnObj).longValue();
     }
 }
