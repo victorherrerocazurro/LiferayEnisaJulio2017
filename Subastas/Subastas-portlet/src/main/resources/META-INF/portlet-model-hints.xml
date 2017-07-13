@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.example.plugins.model.Producto">
+		<field name="uuid" type="String" />
+		<field name="productoId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="nombre" type="String" />
+		<field name="descripcion" type="String" />
+		<field name="precio" type="double" />
+	</model>
+	<model name="com.example.plugins.model.Puja">
+		<field name="uuid" type="String" />
+		<field name="pujaId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="valor" type="double" />
+		<field name="subastaId" type="long" />
+	</model>
+	<model name="com.example.plugins.model.Subasta">
+		<field name="uuid" type="String" />
+		<field name="subastaId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="precioMinimo" type="double" />
+		<field name="fechaInicio" type="Date" />
+		<field name="fechaFin" type="Date" />
+		<field name="productoId" type="long" />
+	</model>
+</model-hints>

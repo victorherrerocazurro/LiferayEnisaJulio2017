@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.example.plugins.service.ProductoLocalService" class="com.example.plugins.service.impl.ProductoLocalServiceImpl" />
+	<bean id="com.example.plugins.service.ProductoService" class="com.example.plugins.service.impl.ProductoServiceImpl" />
+	<bean id="com.example.plugins.service.persistence.ProductoPersistence" class="com.example.plugins.service.persistence.ProductoPersistenceImpl" parent="basePersistence" />
+	<bean id="com.example.plugins.service.PujaLocalService" class="com.example.plugins.service.impl.PujaLocalServiceImpl" />
+	<bean id="com.example.plugins.service.PujaService" class="com.example.plugins.service.impl.PujaServiceImpl" />
+	<bean id="com.example.plugins.service.persistence.PujaPersistence" class="com.example.plugins.service.persistence.PujaPersistenceImpl" parent="basePersistence" />
+	<bean id="com.example.plugins.service.SubastaLocalService" class="com.example.plugins.service.impl.SubastaLocalServiceImpl" />
+	<bean id="com.example.plugins.service.SubastaService" class="com.example.plugins.service.impl.SubastaServiceImpl" />
+	<bean id="com.example.plugins.service.persistence.SubastaPersistence" class="com.example.plugins.service.persistence.SubastaPersistenceImpl" parent="basePersistence" />
+</beans>

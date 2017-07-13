@@ -1,0 +1,156 @@
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
+<service-builder package-path="com.example.plugins">
+	<namespace>Subastas</namespace>
+	<entity name="Producto" uuid="true" local-service="true"
+		remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="productoId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="nombre" type="String" />
+		<column name="descripcion" type="String" />
+		<column name="precio" type="double" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="nombre" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<!-- SELECT * FROM Producto WHERE nombre = ? -->
+		<finder name="Nombre" return-type="Collection">
+			<finder-column name="nombre" />
+		</finder>
+
+		<!-- SELECT * FROM Producto WHERE nombre = ? AND precio = ? -->
+		<finder name="Nombre_Precio" return-type="Collection">
+			<finder-column name="nombre" />
+			<finder-column name="precio" />
+		</finder>
+
+		<!-- SELECT * FROM Producto WHERE nombre = ? OR nombre = ? -->
+		<finder name="Nombres" return-type="Collection">
+			<finder-column name="nombre" arrayable-operator="OR" />
+		</finder>
+
+		<!-- SELECT * FROM Producto WHERE precio <= ? -->
+		<finder name="Precio" return-type="Collection">
+			<finder-column name="precio" comparator="&lt;=" />
+		</finder>
+
+		<!-- References -->
+		<reference package-path="com.liferay.portlet.asset" entity="AssetEntry" />
+		<reference package-path="com.liferay.portlet.asset" entity="AssetTag" />
+	</entity>
+	<entity name="Subasta" uuid="true" local-service="true"
+		remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="subastaId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="precioMinimo" type="double" />
+		<column name="fechaInicio" type="Date" />
+		<column name="fechaFin" type="Date" />
+
+		<!-- FK -->
+		<!-- Relacion 1-1 -->
+		<column name="productoId" type="long" />
+		<!-- Relacion 1-n -->
+		<column name="pujas" type="Collection" entity="Puja" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="precioMinimo" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<!-- SELECT * FROM Producto WHERE fechaInicio >= ? AND fechaFin <= ? -->
+		<finder name="FechaInicio_FechaFin" return-type="Collection">
+			<finder-column name="fechaInicio" comparator="&gt;=" />
+			<finder-column name="fechaFin" comparator="&lt;=" />
+		</finder>
+
+		<!-- References -->
+		<reference package-path="com.liferay.portlet.asset" entity="AssetEntry" />
+		<reference package-path="com.liferay.portlet.asset" entity="AssetTag" />
+	</entity>
+	<entity name="Puja" uuid="true" local-service="true"
+		remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="pujaId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="valor" type="double" />
+
+		<!-- FK -->
+
+		<column name="subastaId" type="long" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="valor" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<!-- SELECT * FROM Puja WHERE idSubasta = ? -->
+		<finder name="Subasta" return-type="Collection">
+			<finder-column name="subastaId" />
+		</finder>
+
+		<!-- References -->
+		<reference package-path="com.liferay.portlet.asset" entity="AssetEntry" />
+		<reference package-path="com.liferay.portlet.asset" entity="AssetTag" />
+	</entity>
+</service-builder>
