@@ -52,6 +52,52 @@ public class FooDto {
 	public void setField5(String field5) {
 		this.field5 = field5;
 	}
+	@Override
+	public String toString() {
+		return "FooDto [field1=" + field1 + ", field2=" + field2 + ", field3=" + field3 + ", field4=" + field4
+				+ ", field5=" + field5 + "]";
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((field1 == null) ? 0 : field1.hashCode());
+		result = prime * result + (field2 ? 1231 : 1237);
+		result = prime * result + field3;
+		result = prime * result + ((field4 == null) ? 0 : field4.hashCode());
+		result = prime * result + ((field5 == null) ? 0 : field5.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FooDto other = (FooDto) obj;
+		if (field1 == null) {
+			if (other.field1 != null)
+				return false;
+		} else if (!field1.equals(other.field1))
+			return false;
+		if (field2 != other.field2)
+			return false;
+		if (field3 != other.field3)
+			return false;
+		if (field4 == null) {
+			if (other.field4 != null)
+				return false;
+		} else if (!field4.equals(other.field4))
+			return false;
+		if (field5 == null) {
+			if (other.field5 != null)
+				return false;
+		} else if (!field5.equals(other.field5))
+			return false;
+		return true;
+	}
 	
 	
 	
